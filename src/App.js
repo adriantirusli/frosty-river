@@ -1,7 +1,7 @@
-import { Provider } from 'react-redux';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './features/home';
-import { store } from './store';
+import { Provider } from 'react-redux'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages'
+import { store } from './store'
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </Provider>
-  );
+  )
 }
 
-export default App;
+export default App

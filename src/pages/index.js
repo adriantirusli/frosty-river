@@ -1,5 +1,6 @@
 import debounce from 'lodash.debounce'
 import { useEffect, useState } from 'react'
+import Filter from '../features/home/components/Filter'
 import Table from '../features/home/components/Table'
 import { get } from '../helper/api'
 
@@ -20,8 +21,11 @@ function Home() {
   const fetchPrice = async () => {
     try {
       setLoading(true)
+
       const response = await get('/list')
+
       setList(response)
+      setFilteredData(response)
       setLoading(false)
     } catch (error) {
       console.error('Error fetching data:', error)
@@ -31,15 +35,23 @@ function Home() {
   const handleSearch = debounce((value) => {
     setSearchTerm(value)
 
-    const filtered = list.filter(
+    const filteredSearch = list.filter(
       (item) =>
         item?.komoditas?.toLowerCase().includes(value.toLowerCase()) ||
         item?.area_provinsi?.toLowerCase().includes(value.toLowerCase()) ||
         item?.area_kota?.toLowerCase().includes(value.toLowerCase())
     )
 
-    setFilteredData(filtered || list)
+    setFilteredData(filteredSearch)
   }, 100)
+
+  const handleFilter = (e) => {
+    const selectedValue = e.target.value
+
+    const filtered = list.filter((item) => item?.size === selectedValue)
+
+    setFilteredData(filtered)
+  }
 
   return (
     <div className="container">
@@ -52,6 +64,7 @@ function Home() {
           onChange={(e) => handleSearch(e.target.value)}
         />
       </div>
+      <Filter handleFilter={handleFilter} />
       <Table columns={columns} listPrices={filteredData} loading={loading} />
     </div>
   )

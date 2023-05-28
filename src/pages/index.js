@@ -6,10 +6,11 @@ import Filter from '../features/home/components/Filter'
 import Table from '../features/home/components/Table'
 import { get } from '../helper/api'
 import './styles.scss'
+import { useQuery } from '@tanstack/react-query'
 
 function Home() {
-  const [list, setList] = useState([])
-  const [loading, setLoading] = useState(false)
+  //const [list, setList] = useState([])
+  //const [loading, setLoading] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [filteredData, setFilteredData] = useState([])
 
@@ -58,24 +59,13 @@ function Home() {
     },
   ]
 
-  useEffect(() => {
-    fetchPrice()
-  }, [])
+  const fetchComodities = async () => {
+    const response = await get('/list')
 
-  const fetchPrice = async () => {
-    try {
-      setLoading(true)
-
-      const response = await get('/list')
-      const addedData = [...newComodity, ...response]
-
-      setList(addedData)
-      setFilteredData(addedData)
-      setLoading(false)
-    } catch (error) {
-      console.error('Error fetching data:', error)
-    }
+    return [...newComodity, ...response]
   }
+
+  const { data: list, isLoading } = useQuery({ queryKey: ['comodities'], queryFn: fetchComodities })
 
   const handleSearch = debounce((term) => {
     setSearchTerm(term)
@@ -132,7 +122,7 @@ function Home() {
           </Link>
         </div>
         <div className="mt-4">
-          <Table columns={columns} listPrices={filteredData} loading={loading} />
+          <Table columns={columns} listPrices={filteredData.length === 0 ? list : filteredData} loading={isLoading} />
         </div>
       </div>
     </div>

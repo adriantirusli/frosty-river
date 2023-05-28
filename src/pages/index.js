@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import debounce from 'lodash'
+import debounce from 'lodash.debounce'
 import { Link } from 'react-router-dom'
 import Filter from '../features/home/components/Filter'
 import Table from '../features/home/components/Table'

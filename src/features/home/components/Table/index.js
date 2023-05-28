@@ -11,7 +11,7 @@ function Table({ columns, listPrices, loading }) {
 
   const itemsPerPage = 15
   const offset = currentPage * itemsPerPage
-  const paginatedList = listPrices.slice(offset, offset + itemsPerPage)
+  const paginatedList = listPrices || ''.slice(offset, offset + itemsPerPage)
 
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected)

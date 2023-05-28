@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import debounce from 'lodash.debounce'
 import { Link } from 'react-router-dom'
@@ -9,8 +9,6 @@ import './styles.scss'
 import { useQuery } from '@tanstack/react-query'
 
 function Home() {
-  //const [list, setList] = useState([])
-  //const [loading, setLoading] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [filteredData, setFilteredData] = useState([])
 

@@ -1,0 +1,38 @@
+@import '../custom-theme.scss';
+
+.container{
+    hr{
+        &.solid {
+            border: 1px solid $primaryColor;
+          }
+    }
+    .title-create{
+        font-size: 1.7rem;
+    }
+    .wrapper-btn-add{
+        justify-content: flex-end;
+        align-items: flex-end;
+        display: flex;
+    } 
+    .btn-add, .btn-success{
+        background-color: $primaryColor;
+        color: $white;
+        border-color: transparent;
+
+        &:hover{
+            border: solid 1px $primaryColor;
+            color: $primaryColor;
+            background-color: transparent;
+        }
+    }
+}
+
+@media only screen and (max-width: $breakpoint-md){
+    .container{
+        .wrapper-btn-add{
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+    }
+}
+

@@ -1,0 +1,72 @@
+@import '../../../../custom-theme.scss';
+
+.thead-primary{
+    background-color: $primaryColor;
+    color: $white
+}
+.react-paginate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+  
+    .pagination {
+      display: flex;
+  
+      li {
+        margin: 0 5px;
+  
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 30px;
+          height: 30px;
+          border: 1px solid $primaryColor;
+          border-radius: 50%;
+          color: $secondaryColor;
+          text-decoration: none;
+  
+          &:hover {
+            background-color: $lightBlue;
+            border-color: $lightBlue;
+          }
+  
+          
+        }
+        &.active {
+            background-color: $primaryColor;
+            border-radius: 50%;
+
+            a{
+                color: $white;
+            }
+        }
+      }
+      
+      .previous,
+      .next {
+        margin: 0 5px;
+  
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 5px 50px;
+          border: 1px solid $primaryColor;
+          border-radius: 3px;
+  
+          &:hover {
+            background-color: $lightBlue;
+            border-color: $lightBlue;
+          }
+        }
+      }
+  
+      .disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+  }

@@ -38,7 +38,7 @@ The live version is on [frosty-river.vercel.com](https://frosty-river.vercel.com
     - Include keyboard focus indicators, such as outlines or custom styling, to make it clear which element has keyboard focus.
 
 2. Semantic Markup:
-    - Use semantic HTML elements, such as <nav>, <input>, <table>, <th>, <tr>, and <td>, etc to structure the pages.
+    - Use semantic HTML elements, such as `<nav>, <input>, <table>, <th>, <tr>, and <td>, etc` to structure the pages.
     - This allows screen readers and other assistive technologies to interpret and navigate the table correctly.
 
 3. Color Contrast:

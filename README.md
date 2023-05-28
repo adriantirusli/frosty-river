@@ -1,7 +1,7 @@
 # Frosty River
 
 Frosty River is a Commodity Data based on location in Indonesia.
-The live version is on [frosty-river.vercel.com](https://frosty-river.vercel.com/).
+The live version is on [frosty-river.vercel.com](https://frosty-river.vercel.app/).
 
 ## Technologies Used
 

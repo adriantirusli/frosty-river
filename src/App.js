@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages'
+import Create from './pages/Create'
 import { store } from './store'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={'/'} element={<Home />} />
+          <Route path={'/tambah-komoditas'} element={<Create />} />
         </Routes>
       </BrowserRouter>
     </Provider>
